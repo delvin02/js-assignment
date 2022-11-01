@@ -9,10 +9,11 @@
         a) get "go to other websites" element
         b) do
         c)      prompt for user input
-        d) while input >= 1 or input <= 3
-        e)      case 1 -> redirect to google.com
-        f)      case 2 -> redirect to tafesa.edu.au
-        g)      case 3 -> redirect to learn.tafeas.edu.au
+        d) while input  < 1 or input is not > 3
+        e) switch input
+        f)      case 1 -> redirect to google.com and break
+        g)      case 2 -> redirect to tafesa.edu.au and break
+        h)      case 3 -> redirect to learn.tafeas.edu.au and break
 
     Validating Input
 
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', function() {
         do {
             var index = parseInt(prompt("Which website do you want\n 1. google \n 2. tafesa \n 3. learn "));
-        }while (index >= 1 && index <=3);
+        }while (index < 1 && index > 3);
         switch (index)
         {
             case 1:
