@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', function() {
         do {
             var index = parseInt(prompt("Which website do you want\n 1. google \n 2. tafesa \n 3. learn "));
-        }while (index < 1 && index > 3);
+        }while (index < 1 || index > 3);
         switch (index)
         {
             case 1:
