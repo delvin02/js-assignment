@@ -33,10 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
         do {
             var index = parseInt(prompt("Which website do you want\n 1. google \n 2. tafesa \n 3. learn "));
         }while (index < 1 || index > 3);
-<<<<<<< HEAD
-		
-=======
->>>>>>> 403d5047c0e7b422b1a61f4739d75bbb1301378e
         switch (index)
         {
             case 1:
