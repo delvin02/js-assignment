@@ -32,18 +32,23 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', function() {
         do {
             var index = parseInt(prompt("Which website do you want\n 1. google \n 2. tafesa \n 3. learn "));
-        }while (index < 1 && index > 3);
+        }while (index < 1 || index > 3);
+		
         switch (index)
         {
             case 1:
-                location.href = "http://www.google.com";
+				window.open( "http://www.google.com", "myWindow", 
+				"status = 1, height = 800, width = 800, resizable = 0" );
                 break;
             case 2:
-                location.href = "https://tafesa.edu.au";
+				window.open( "http://www.tafesa.edu.au", "myWindow", 
+				"status = 1, height = 800, width = 800, resizable = 0" );
                 break;
             case 3:
-                location.href = "https://learn.tafesa.edu.au/";
+				window.open( "https://learn.tafesa.edu.au/", "myWindow", 
+				"status = 1, height = 800, width = 800, resizable = 0" );
                 break;
+				
         }
     })
 
