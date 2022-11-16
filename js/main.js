@@ -30,7 +30,7 @@
 	postcode
         get postcode input
         addEventListener - keyup event 
-         	if email match email REGEX /^[0-9]{4}$/
+         	if postcode match email REGEX /^[0-9]{4}$/
               	hide error message
 				return true
          	else
@@ -138,15 +138,29 @@ document.addEventListener('DOMContentLoaded', function() {
 			// Hide error message
             error_message.style.display = 'none';
             email.classList.remove('is-invalid');
-			return true;
         }
         else
         {
 			// Display Error Message to warn user
+            error_message.innerHTML = "Email Format Incorrect."
             error_message.style.display = "block";
             email.classList.add('is-invalid');
+            return false
+        }
+        console.log(e.target.value.length);
+        if (e.target.value.length < 8)
+        {
+            error_message.innerHTML = "At least 8 characters"
+            error_message.style.display = "block";
+            email.classList.add('is-invalid');
+        }
+        else
+        {
+            error_message.style.display = 'none';
+            email.classList.remove('is-invalid');
 			return false;
         }
+        return true
     })
 
     // Postcode
@@ -250,13 +264,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     })
+    
+    // Month and Year Validation
+
+    // Get Current Date
+    var currentdate = new Date();
+
+    // Get input Month
+    var month = document.getElementById("select-month");
+
+    // Get input Year
+    var year = document.getElementById("select-year");
+
+    // Select error message element
+    var error_message_card = document.getElementById("card-expirary-error")
+    year.addEventListener('change', () => {
+        if (year.value < currentdate.getFullYear())
+        {
+            error_message_card.style.display = 'block';
+            error_message_card.classList.add("is-invalid");
+            return false;
+        }
+        else
+        {
+            error_message_card.style.display = 'none';
+            error_message_card.classList.remove("is-invalid");
+            return true;
+        }
+    })
+    month.addEventListener('change', () => {
+        if (year.value == currentdate.getFullYear() && currentdate.getMonth() + 1 > month.value)
+        {
+            error_message_card.style.display = 'block';
+            error_message_card.classList.add("is-invalid");
+            return false;
+        }
+        else
+        {
+            error_message_card.style.display = 'none';
+            error_message_card.classList.remove("is-invalid");
+            return false;
+        }
+    })
+
+
 
     // Credit Card - CVV
     var cvc = document.getElementById('cc-exp');
 
     cvc.addEventListener('keyup', function(e) {
         // REGEX for CVC
-        var cvc_num = /^[0-9]{3,4}$/;        
+        var cvc_num = /^[0-9]{3,4}$/;
+
 		// Select error message element
         var error_message = document.getElementById("cvv");
         var error_border = document.getElementById("cc-exp");
@@ -277,8 +336,7 @@ document.addEventListener('DOMContentLoaded', function() {
             error_border.classList.add("is-invalid");
 			return false;
         }
+
     })
-
-
     
 })
