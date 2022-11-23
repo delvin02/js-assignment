@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var postcode = document.getElementById("postcode");
     postcode.addEventListener('keyup', function(e) {
-        var postcode_check = /^[0-9]{4}$/;
+        var postcode_check = /^[0-9]{3,4}$/;
 
         // Error Element
         var postcode_error = document.getElementById("postcode_error");
