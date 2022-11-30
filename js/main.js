@@ -117,7 +117,14 @@ document.addEventListener('DOMContentLoaded', function() {
 				
         }
     })
-
+	
+	// Help Button
+	var help = document.getElementById('help');
+	
+	help.addEventListener('click', function() {
+		window.open("help.html", "_blank",
+		"status = 1, height = 500, width = 500, resizable = 0");
+	})
     // Validator
 
     // Email 
@@ -327,7 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
             error_message.style.display = 'none';
             error_border.classList.remove('is-invalid');
 			return true;
-
         }
         else
         {
