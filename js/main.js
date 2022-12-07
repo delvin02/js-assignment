@@ -117,12 +117,23 @@ document.addEventListener('DOMContentLoaded', function() {
 				
         }
     })
+	var help = document.getElementById("help");
+	
+	help.addEventListener('click', function() {
+		window.open("./html/help.html", "myWindow", "height = 500, width = 500, resizable = 0");
+		
+	})
 
     // Validator
 
     // Email 
-		var email = document.getElementById("email");
-	
+	try {
+		email = document.getElementById("email");
+		console.log("success!");
+	}
+	catch(err) {
+		alert("Oh no!" + err)
+	}
 	// Whenever a key is pressed, execute this
     email.addEventListener('keyup', function(e) {
 		
