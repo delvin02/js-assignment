@@ -117,18 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				
         }
     })
-	
-	// Help Button
-	var help = document.getElementById('help');
-	
-	help.addEventListener('click', function() {
-		window.open("help.html", "_blank",
-		"status = 1, height = 500, width = 500, resizable = 0");
-	})
+
     // Validator
 
     // Email 
-    var email = document.getElementById("email");
+		var email = document.getElementById("email");
 	
 	// Whenever a key is pressed, execute this
     email.addEventListener('keyup', function(e) {
@@ -154,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             email.classList.add('is-invalid');
             return false
         }
+		debugger;
         console.log(e.target.value.length);
         if (e.target.value.length < 8)
         {
@@ -200,12 +194,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var errorCard = document.getElementById("card-error");
     cardInfo.addEventListener('keyup', function (e) {
 
-        // REGEX for different cards
+        // REGEX for American Express
         var americanExpress = /^3[47][0-9]{13}$/;
+		// REGEX for Visa
         var visa = /^4[0-9]{12}(?:[0-9]{3})?$/;
+		// REGEX for Mastercard
         var masterCard = /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/;
 
-        // Check inputted value
+        // Check credit card type
         switch (card.value)
         {
             // Verifying American Express
@@ -285,30 +281,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Select error message element
     var error_message_card = document.getElementById("card-expirary-error")
+	
+	// Check when year changed
     year.addEventListener('change', () => {
+		// If year < current year
         if (year.value < currentdate.getFullYear())
         {
+			// Make error message visible
             error_message_card.style.display = 'block';
+			// Assign class to the error messasge html element
             error_message_card.classList.add("is-invalid");
             return false;
         }
         else
         {
+			// Make error message invisible
             error_message_card.style.display = 'none';
+			// Remove class to the error message 
             error_message_card.classList.remove("is-invalid");
             return true;
         }
     })
+	// Check when month change
     month.addEventListener('change', () => {
+		// if inputted year is equal to current year and current month is bigger than inputted month
         if (year.value == currentdate.getFullYear() && currentdate.getMonth() + 1 > month.value)
         {
+			// Display Error Message
             error_message_card.style.display = 'block';
+			// Assign class to error message element
             error_message_card.classList.add("is-invalid");
             return false;
         }
         else
         {
+			// Remove Error Message
             error_message_card.style.display = 'none';
+			// Remove class to error message element
             error_message_card.classList.remove("is-invalid");
             return false;
         }
@@ -334,6 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
             error_message.style.display = 'none';
             error_border.classList.remove('is-invalid');
 			return true;
+
         }
         else
         {
@@ -346,3 +356,11 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     
 })
+function focusBackground(textField){
+	textField.style.background = "#D9D9D9";
+	textField.value = textField.value.trim();
+}
+function changeTextFieldBlur(textField) {
+	textField.value = textField.value.toUpperCase();
+	textField.value = textField.value.trim();
+}
