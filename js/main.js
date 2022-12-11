@@ -126,6 +126,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Validator
 
+
+    // First Name cannot be blank validator
+    
+    // get First Name element
+    var firstName = document.getElementById("firstName");
+    
+    firstName.addEventListener('keyup', function(e){
+
+        // Select first name error message
+        error_message = document.getElementById("firstname_error");
+        if (e.target.value.length < 1)
+        {
+            // Display Error message
+            error_message.style.display = 'block';
+            firstName.classList.add("is-invalid");
+            return false;d
+        }
+        else
+        {
+            // Erase Error Message
+            error_message.style.display = 'none';
+            firstName.classList.remove('is-invalid');
+            return true;
+        }
+    })
+
+    // Last Name cannot be blank validator
+    var lastName = document.getElementById("lastName");
+    
+    lastName.addEventListener('keyup', function(e){
+
+        // Select first name error message
+        error_message = document.getElementById("lastname_error");
+        if (e.target.value.length < 1)
+        {
+            // Display Error message
+            error_message.style.display = 'block';
+            lastName.classList.add("is-invalid");
+            return false;d
+        }
+        else
+        {
+            // Erase Error Message
+            error_message.style.display = 'none';
+            lastName.classList.remove('is-invalid');
+            return true;
+        }
+    })
     // Email 
 	try {
 		email = document.getElementById("email");

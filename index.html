@@ -38,11 +38,17 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="inputEmail4">First Name</label>
-                                                    <input type="text" class="form-control" id="inputEmail4" placeholder="First Name" onblur="changeTextFieldBlur(this)" required>
+                                                    <input type="text" class="form-control" id="firstName" placeholder="First Name" onblur="changeTextFieldBlur(this)" required>
+                                                    <div id="firstname_error" class="invalid-feedback">
+                                                        First Name cannot be blank.
+                                                    </div>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="inputPassword4">Last Name</label>
-                                                    <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" onblur="changeTextFieldBlur(this)" required>
+                                                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" onblur="changeTextFieldBlur(this)" required>
+                                                    <div id="lastname_error" class="invalid-feedback">
+                                                        Last name cannot be blank.
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
